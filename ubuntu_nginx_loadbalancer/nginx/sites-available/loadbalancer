@@ -16,14 +16,14 @@
 # Please see /usr/share/doc/nginx-doc/examples/ for more detailed examples.
 ##
 upstream loadbalancer {
-    server web1 weight=5;
-    server web2 weight=5;
+    server 172.17.0.3  weight=5;
+    server 172.17.0.4  weight=5;
 }
 
 server {
     listen 80;
 
     location / {
-        proxy_pass http://loadbalancer
+        proxy_pass http://loadbalancer;
     }
 }
